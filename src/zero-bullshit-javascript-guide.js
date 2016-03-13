@@ -2,21 +2,19 @@ import { fireWeapon } from './oop/classes';
 
 const zeroBullshitJavaScriptGuide = {
   test() {
-    pipLog('Starting simulation');
+    console.log(pip`Starting simulation`);
     fireWeapon();
-    pipLog('Completing simluation');
+    console.log(pip`Completing simluation`);
   }
 };
 
-function pipLog(message) {
-  console.log(`
-
+// tag, reusable formatting function
+function pip(literals /*[, substitutions]*/) {
+  return `
 ************************************************************
- PIP 4000 - ${message} -
+  PIP 4000 - ${literals.join(' - ')} -
 ************************************************************
-
-  `);
-
+  `;
 }
 
 export default zeroBullshitJavaScriptGuide;

@@ -60,18 +60,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
+	var _templateObject = _taggedTemplateLiteral(['Starting simulation'], ['Starting simulation']),
+	    _templateObject2 = _taggedTemplateLiteral(['Completing simluation'], ['Completing simluation']);
+	
 	var _classes = __webpack_require__(1);
+	
+	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 	
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
-	    pipLog('Starting simulation');
+	    console.log(pip(_templateObject));
 	    (0, _classes.fireWeapon)();
-	    pipLog('Completing simluation');
+	    console.log(pip(_templateObject2));
 	  }
 	};
 	
-	function pipLog(message) {
-	  console.log('\n\n************************************************************\n PIP 4000 - ' + message + ' -\n************************************************************\n\n  ');
+	// tag, reusable formatting function
+	function pip(literals /*[, substitutions]*/) {
+	  return '\n************************************************************\n  PIP 4000 - ' + literals.join(' - ') + ' -\n************************************************************\n  ';
 	}
 	
 	exports.default = zeroBullshitJavaScriptGuide;

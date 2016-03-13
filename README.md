@@ -1,4 +1,4 @@
-# The Zero Bullshit JavaScript Guide to Surive in the Wasteland
+# The Zero Bullshit JavaScript Guide to Survive in the Wasteland
 
 ## Introduction
 
@@ -10,11 +10,12 @@
 
 You'll need to build some weapons if you want to survive in the radioactive wasteland:
 
-1. Table of Contents: Object Oriented Programming (and more)
+1. Object Oriented Programming (and more)
     1. Intro to Classes
         1. Constructors and Methods
         1. Modules
     1. Template Strings
+        1. Tags
 
 
 
