@@ -1,13 +1,9 @@
-# The Zero Bullshit JavaScript Guide to Survive in the Wasteland
+# the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland
 
-This repo contains a bunch of code samples tied to a talk titled "The Zero Bullshit JavaScript Guide to Survive in the Wasteland", a very pragmatic approach to learn JavaScript as a C# dev.
+Code samples
 
-## Based on the Generator-Babel-Boilerplate
-
-*TODO*
-
-```
-install -g yo generator-babel-boilerplate
-```
-
-
+[![Travis build status](http://img.shields.io/travis/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland.svg?style=flat)](https://travis-ci.org/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland)
+[![Code Climate](https://codeclimate.com/github/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland/badges/gpa.svg)](https://codeclimate.com/github/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland)
+[![Test Coverage](https://codeclimate.com/github/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland/badges/coverage.svg)](https://codeclimate.com/github/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland)
+[![Dependency Status](https://david-dm.org/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland.svg)](https://david-dm.org/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland)
+[![devDependency Status](https://david-dm.org/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland/dev-status.svg)](https://david-dm.org/vintharas/the-zero-bullshit-java-script-guide-to-survive-in-the-wasteland#info=devDependencies)
