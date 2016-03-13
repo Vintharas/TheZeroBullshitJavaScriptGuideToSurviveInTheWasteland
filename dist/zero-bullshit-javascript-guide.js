@@ -110,6 +110,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var Weapon = exports.Weapon = function () {
 	  function Weapon(damage, rateOfFire) {
+	    var weight = arguments.length <= 2 || arguments[2] === undefined ? 10 : arguments[2];
+	
 	    _classCallCheck(this, Weapon);
 	
 	    this.damage = damage;
@@ -121,6 +123,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function toString() {
 	      return "an undescriptive weapon with " + this.damage + " damage";
 	    }
+	  }, {
+	    key: "fire",
+	    value: function fire() {
+	      console.log("You fire " + this);
+	    }
 	  }]);
 	
 	  return Weapon;
@@ -130,9 +137,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _inherits(HeavyWeapon, _Weapon);
 	
 	  function HeavyWeapon(damage, rateOfFire) {
+	    var weight = arguments.length <= 2 || arguments[2] === undefined ? 50 : arguments[2];
+	
 	    _classCallCheck(this, HeavyWeapon);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HeavyWeapon).call(this, damage * 10, rateOfFire / 2));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HeavyWeapon).call(this, damage * 10, rateOfFire / 2, weight));
 	  }
 	
 	  _createClass(HeavyWeapon, [{
@@ -147,10 +156,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function fireWeapon() {
 	  var weapon = new Weapon(10, 1);
-	  console.log("You fire " + weapon);
+	  weapon.fire();
 	  // you fire an undescriptive weapon with 10 damage
 	  var heavyWeapon = new HeavyWeapon(10, 1);
-	  console.log("You fire " + heavyWeapon);
+	  heavyWeapon.fire();
+	  // you fire an undescriptive weapon with 100 damage. It looks heavy
 	}
 
 /***/ }
