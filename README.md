@@ -16,6 +16,8 @@ You'll need to build some weapons if you want to survive in the radioactive wast
         1. Modules
     1. Template Strings
         1. Tags
+    1. Class Inheritance
+        1. Super. Method extension and overriding
 
 
 
