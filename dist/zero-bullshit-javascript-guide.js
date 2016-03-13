@@ -71,6 +71,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  test: function test() {
 	    console.log(pip(_templateObject));
 	    (0, _classes.fireWeapon)();
+	    // more stuff
+	    var weapon = new _classes.Weapon(10, 1);
+	    // no access to symbol that is private to the classes module
+	    try {
+	      console.log('weapon damage: ' + weapon[damageSymbol]);
+	    } catch (error) {
+	      console.error('ups ---> ' + error.message);
+	    }
+	    // but...
+	    var evilSymbol = Object.getOwnPropertySymbols(weapon)[0];
+	    console.log('weapon damage: ' + weapon[evilSymbol]);
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -90,7 +101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -108,25 +119,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	// privacy with symbols
+	var damageSymbol = Symbol('damage');
+	
 	var Weapon = exports.Weapon = function () {
 	  function Weapon(damage, rateOfFire) {
 	    var weight = arguments.length <= 2 || arguments[2] === undefined ? 10 : arguments[2];
 	
 	    _classCallCheck(this, Weapon);
 	
-	    this.damage = damage;
+	    this[damageSymbol] = damage;
 	    this.rateOfFire = rateOfFire;
+	    this.weight = weight;
 	  }
 	
 	  _createClass(Weapon, [{
-	    key: "toString",
+	    key: 'toString',
 	    value: function toString() {
-	      return "an undescriptive weapon with " + this.damage + " damage";
+	      return 'an undescriptive weapon with ' + this[damageSymbol] + ' damage';
 	    }
 	  }, {
-	    key: "fire",
+	    key: 'fire',
 	    value: function fire() {
-	      console.log("You fire " + this);
+	      console.log('You fire ' + this);
 	    }
 	  }]);
 	
@@ -145,9 +160,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  _createClass(HeavyWeapon, [{
-	    key: "toString",
+	    key: 'toString',
 	    value: function toString() {
-	      return _get(Object.getPrototypeOf(HeavyWeapon.prototype), "toString", this).call(this) + ". It looks heavy.";
+	      return _get(Object.getPrototypeOf(HeavyWeapon.prototype), 'toString', this).call(this) + '. It looks heavy.';
 	    }
 	  }]);
 	
@@ -161,6 +176,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var heavyWeapon = new HeavyWeapon(10, 1);
 	  heavyWeapon.fire();
 	  // you fire an undescriptive weapon with 100 damage. It looks heavy
+	
+	  // testing privacy
+	  console.log('heavy weapon damage: ' + heavyWeapon.damage);
+	  // only through access to the symbol can you access the variable
+	  console.log('heavy weapon damage: ' + heavyWeapon[damageSymbol]);
 	}
 
 /***/ }

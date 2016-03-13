@@ -1,10 +1,14 @@
+// privacy with symbols
+let damageSymbol = Symbol('damage');
+
 export class Weapon {
   constructor(damage, rateOfFire, weight=10) {
-    this.damage = damage;
+    this[damageSymbol] = damage;
     this.rateOfFire = rateOfFire;
+    this.weight = weight;
   }
   toString() {
-    return `an undescriptive weapon with ${this.damage} damage`;
+    return `an undescriptive weapon with ${this[damageSymbol]} damage`;
   }
   fire() {
     console.log(`You fire ${this}`);
@@ -28,4 +32,9 @@ export function fireWeapon() {
   var heavyWeapon = new HeavyWeapon(10, 1);
   heavyWeapon.fire();
   // you fire an undescriptive weapon with 100 damage. It looks heavy
+
+  // testing privacy
+  console.log(`heavy weapon damage: ${heavyWeapon.damage}`);
+  // only through access to the symbol can you access the variable
+  console.log(`heavy weapon damage: ${heavyWeapon[damageSymbol]}`);
 }
