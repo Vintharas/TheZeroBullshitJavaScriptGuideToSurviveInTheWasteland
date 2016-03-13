@@ -20,6 +20,7 @@ You'll need to build some weapons if you want to survive in the radioactive wast
         1. Super. Method extension and overriding
     1. Class privacy by convention
     1. Class Privacy with Symbols
+    1. Class Privacy with Closures
 
 
 
