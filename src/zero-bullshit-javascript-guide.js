@@ -1,6 +1,8 @@
+import { fireWeapon } from './oop/classes';
+
 const zeroBullshitJavaScriptGuide = {
   test() {
-    console.log('it works');
+    fireWeapon();
   }
 };
 export default zeroBullshitJavaScriptGuide;

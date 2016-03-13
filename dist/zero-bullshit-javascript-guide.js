@@ -52,16 +52,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _classes = __webpack_require__(1);
+	
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
-	    console.log('it works');
+	    (0, _classes.fireWeapon)();
 	  }
 	};
 	exports.default = zeroBullshitJavaScriptGuide;
@@ -69,6 +72,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	// like a boss
 	
 	zeroBullshitJavaScriptGuide.test();
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	exports.fireWeapon = fireWeapon;
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Weapon = exports.Weapon = function () {
+	  function Weapon(damage, rateOfFire) {
+	    _classCallCheck(this, Weapon);
+	
+	    this.damage = damage;
+	    this.rateOfFire = rateOfFire;
+	  }
+	
+	  _createClass(Weapon, [{
+	    key: 'toString',
+	    value: function toString() {
+	      return 'an undescriptive weapon with ' + this.damage + ' damage';
+	    }
+	  }]);
+	
+	  return Weapon;
+	}();
+	
+	function fireWeapon() {
+	  var weapon = new Weapon(10, '1 round per second');
+	  console.log('You fire ' + weapon);
+	}
 
 /***/ }
 /******/ ])
