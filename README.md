@@ -19,3 +19,13 @@ You'll need to build some weapons if you want to survive in the radioactive wast
     1. Intro to Classes
         1. Constructors and Methods
         1. Modules
+    1. Template Strings
+
+
+
+
+## Want to learn more ES6?
+
+* Check [Barbarian Meets Coding](http://www.barbarianmeetscoding.com/blog/categories/es6/)
+* And [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
+* And do some [ES6 Katas](http://es6katas.org/) to get some practice

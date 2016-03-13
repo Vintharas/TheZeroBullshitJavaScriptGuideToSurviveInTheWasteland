@@ -10,7 +10,7 @@
     "watch": "gulp watch",
     "build": "gulp build",
     "coverage": "gulp coverage",
-    "run": "gulp build && node dist/zero-bullshit-javascript-guide.js"
+    "simulation": "gulp build && node dist/zero-bullshit-javascript-guide.js"
   },
   "repository": {
     "type": "git",

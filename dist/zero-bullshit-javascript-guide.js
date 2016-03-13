@@ -64,9 +64,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
+	    pipLog('Starting simulation');
 	    (0, _classes.fireWeapon)();
+	    pipLog('Completing simluation');
 	  }
 	};
+	
+	function pipLog(message) {
+	  console.log('\n\n************************************************************\n PIP 4000 - ' + message + ' -\n************************************************************\n\n  ');
+	}
+	
 	exports.default = zeroBullshitJavaScriptGuide;
 	
 	// like a boss
@@ -110,6 +117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function fireWeapon() {
 	  var weapon = new Weapon(10, '1 round per second');
 	  console.log('You fire ' + weapon);
+	  // you fire an undescriptive weapon with 10 damage
 	}
 
 /***/ }
