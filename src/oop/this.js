@@ -19,7 +19,7 @@ export class Shop {
   }
   listWares() {
     if (!this.wares.length > 0) {
-      this.wares = this.repo.getAll(function done(wares) {
+      this.wares = this.repo.getAll((function done(wares) {
         try {
           this.wares = wares;
           console.log(this.wares);
@@ -27,7 +27,7 @@ export class Shop {
           console.log('error: ' + error.message);
           // => error: cannot set wares of undefined!
         }
-      });
+      }).bind(this));
     } else {
       console.log(this.wares);
     }

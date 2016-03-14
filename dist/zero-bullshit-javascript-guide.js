@@ -72,8 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    //testThis();
-	    (0, _this.testHowThisWorks)();
+	    (0, _this.testThis)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -233,15 +232,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.wares = this.repo.getAll(function done(wares) {
 	          try {
 	            this.wares = wares;
-	            console.log(this.wares);
+	            console.log(this.wares.map(function (w) {
+	              return w.name;
+	            }));
 	          } catch (error) {
 	            console.log('error: ' + error.message);
 	            // => error: cannot set wares of undefined!
 	          }
-	        });
+	        }.bind(this));
 	      } else {
-	          console.log(this.wares);
-	        }
+	        console.log(this.wares);
+	      }
 	    }
 	  }]);
 	
@@ -265,12 +266,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  fireUnbound();
 	  // => you fire undefined
 	
-	  console.log('=== this bound explicitly ===');
+	  console.log('=== this explicitly ===');
 	  fireUnbound.call( /* this */weapon);
 	  // => you fire an undescriptive weapon with 10 damage
 	  fireUnbound.call( /* this */'jaime');
 	  // => you fire jaime
 	
+	  console.log('=== this bound ===');
 	  var fireBound = weapon.fire.bind(weapon);
 	  fireBound();
 	  // => you fire an undescriptive weapon with 10 damage
