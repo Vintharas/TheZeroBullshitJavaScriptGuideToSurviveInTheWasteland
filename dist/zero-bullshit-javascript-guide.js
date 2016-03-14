@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("fs"));
 	else if(typeof define === 'function' && define.amd)
-		define([], factory);
+		define(["fs"], factory);
 	else if(typeof exports === 'object')
-		exports["zeroBullshitJavaScriptGuide"] = factory();
+		exports["zeroBullshitJavaScriptGuide"] = factory(require("fs"));
 	else
-		root["zeroBullshitJavaScriptGuide"] = factory();
-})(this, function() {
+		root["zeroBullshitJavaScriptGuide"] = factory(root["fs"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -61,21 +61,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	
 	var _templateObject = _taggedTemplateLiteral(['Starting simulation'], ['Starting simulation']),
-	    _templateObject2 = _taggedTemplateLiteral(['Completing simluation'], ['Completing simluation']);
+	    _templateObject2 = _taggedTemplateLiteral(['Completing simulation'], ['Completing simulation']);
 	
 	var _classes = __webpack_require__(1);
+	
+	var _this = __webpack_require__(2);
 	
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 	
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _classes.fireWeapon)();
-	    // more stuff
-	    var weapon = new _classes.Weapon(10, 1);
-	    // closures give you true privacy
-	    console.log('weapon damage: ' + weapon.damage);
-	    // => weapon damage: undefined
+	    (0, _this.testThis)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -173,6 +170,91 @@ return /******/ (function(modules) { // webpackBootstrap
 	  console.log("heavy weapon damage: " + heavyWeapon.damage);
 	  // heavy weapon with damage: undefined
 	}
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Shop = exports.WeaponRepositoryOhYeah = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	exports.testThis = testThis;
+	
+	var _classes = __webpack_require__(1);
+	
+	var _fs = __webpack_require__(3);
+	
+	var _fs2 = _interopRequireDefault(_fs);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var WeaponRepositoryOhYeah = exports.WeaponRepositoryOhYeah = function () {
+	  function WeaponRepositoryOhYeah() {
+	    _classCallCheck(this, WeaponRepositoryOhYeah);
+	  }
+	
+	  _createClass(WeaponRepositoryOhYeah, [{
+	    key: 'getAll',
+	    value: function getAll(done) {
+	      _fs2.default.readFile('./src/oop/weapons.json', 'utf8', function (err, data) {
+	        if (err) {
+	          return console.log(err);
+	        }
+	        done(JSON.parse(data));
+	      });
+	    }
+	  }]);
+	
+	  return WeaponRepositoryOhYeah;
+	}();
+	
+	var Shop = exports.Shop = function () {
+	  function Shop() {
+	    _classCallCheck(this, Shop);
+	
+	    this.wares = [];
+	    this.repo = new WeaponRepositoryOhYeah();
+	  }
+	
+	  _createClass(Shop, [{
+	    key: 'listWares',
+	    value: function listWares() {
+	      if (!this.wares.length > 0) {
+	        this.wares = this.repo.getAll(function done(wares) {
+	          try {
+	            this.wares = wares;
+	            console.log(this.wares);
+	          } catch (error) {
+	            console.log('error: ' + error.message);
+	          }
+	        });
+	      } else {
+	        console.log(this.wares);
+	      }
+	    }
+	  }]);
+	
+	  return Shop;
+	}();
+	
+	function testThis() {
+	  var repo = new Shop();
+	  repo.listWares();
+	}
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = require("fs");
 
 /***/ }
 /******/ ])

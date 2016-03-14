@@ -1,15 +1,11 @@
 import { Weapon, fireWeapon } from './oop/classes';
+import { testThis } from './oop/this';
 
 const zeroBullshitJavaScriptGuide = {
   test() {
     console.log(pip`Starting simulation`);
-    fireWeapon();
-    // more stuff
-    let weapon = new Weapon(10, 1);
-    // closures give you true privacy
-    console.log(`weapon damage: ${weapon.damage}`);
-    // => weapon damage: undefined
-    console.log(pip`Completing simluation`);
+    testThis();
+    console.log(pip`Completing simulation`);
   }
 };
 

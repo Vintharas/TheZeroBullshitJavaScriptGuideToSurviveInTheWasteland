@@ -21,7 +21,9 @@ You'll need to build some weapons if you want to survive in the radioactive wast
     1. Class privacy by convention
     1. Class Privacy with Symbols
     1. Class Privacy with Closures
-
+    1. This
+        1. Problems with this with async callbacks
+        1. How This works? Fixing problems with this
 
 
 ## Want to learn more ES6?

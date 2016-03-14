@@ -61,6 +61,7 @@ function build() {
   return gulp.src(path.join('src', config.entryFileName + '.js'))
     .pipe($.plumber())
     .pipe(webpackStream({
+      target: 'node',
       output: {
         filename: exportFileName + '.js',
         libraryTarget: 'umd',

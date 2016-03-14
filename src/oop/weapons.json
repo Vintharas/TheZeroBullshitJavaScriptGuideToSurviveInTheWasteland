@@ -1,0 +1,5 @@
+[
+  {"name": "fat boy", "damage": 1000, "weight": 20, "rateOfFire": 0.5},
+  {"name": "laser gun", "damage": 100, "weight": 2, "rateOfFire": 5},
+  {"name": "laser rifle", "damage": 500, "weight": 10, "rateOfFire": 2.5}
+]
