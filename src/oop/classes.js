@@ -36,3 +36,21 @@ export function fireWeapon() {
   console.log(`heavy weapon damage: ${heavyWeapon.damage}`);
   // heavy weapon with damage: undefined
 }
+
+export function testNew() {
+  // ups, forgot the new keyword
+  try {
+    var weapon = ES5Weapon(10, 1);
+    console.log(`weapon is : ${weapon}`);
+  } catch (error) {
+    console.log(error);
+    // => cannot set property damage of undefined
+    //    this.damage = damage;
+  }
+}
+
+function ES5Weapon(damage, rateOfFire, weight=10) {
+  this.damage = damage;
+  this.rageOfFire = rateOfFire;
+  this.weight = weight;
+}

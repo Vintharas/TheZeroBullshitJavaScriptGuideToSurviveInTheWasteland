@@ -72,7 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _this.testThis)();
+	    (0, _classes.testNew)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -103,6 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	exports.fireWeapon = fireWeapon;
+	exports.testNew = testNew;
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
@@ -169,6 +170,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // testing privacy
 	  console.log("heavy weapon damage: " + heavyWeapon.damage);
 	  // heavy weapon with damage: undefined
+	}
+	
+	function testNew() {
+	  // ups, forgot the new keyword
+	  try {
+	    var weapon = ES5Weapon(10, 1);
+	    console.log("weapon is : " + weapon);
+	  } catch (error) {
+	    console.log(error);
+	    // => cannot set property damage of undefined
+	    //    this.damage = damage;
+	  }
+	}
+	
+	function ES5Weapon(damage, rateOfFire) {
+	  var weight = arguments.length <= 2 || arguments[2] === undefined ? 10 : arguments[2];
+	
+	  this.damage = damage;
+	  this.rageOfFire = rateOfFire;
+	  this.weight = weight;
 	}
 
 /***/ },
