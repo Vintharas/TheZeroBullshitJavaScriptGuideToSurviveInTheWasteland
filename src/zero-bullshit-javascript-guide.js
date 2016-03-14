@@ -1,10 +1,11 @@
 import { Weapon, fireWeapon, testNew } from './oop/classes';
 import { testThis, testHowThisWorks } from './oop/this';
+import { fireTheWeapon } from './oop/factories.js';
 
 const zeroBullshitJavaScriptGuide = {
   test() {
     console.log(pip`Starting simulation`);
-    testNew();
+    fireTheWeapon();
     console.log(pip`Completing simulation`);
   }
 };

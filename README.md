@@ -28,7 +28,9 @@ You'll need to build some weapons if you want to survive in the radioactive wast
         1. Fixing This issue with arrow functions (*beware)
     1. Problems with this and with new
 1. Object Oriented Programming in a More JavaScript-y Way (and more)
-    1. ... etc
+    1. **Introduction to Factories**
+    1. // Inheritance with Factories
+    1. // Composition with Factories using Mixins
 
 
 ## Want to learn more ES6?

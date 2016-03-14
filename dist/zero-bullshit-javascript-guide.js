@@ -67,12 +67,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _this = __webpack_require__(2);
 	
+	var _factories = __webpack_require__(4);
+	
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 	
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _classes.testNew)();
+	    (0, _factories.fireTheWeapon)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -299,6 +301,43 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	module.exports = require("fs");
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.TheWeapon = TheWeapon;
+	exports.fireTheWeapon = fireTheWeapon;
+	function TheWeapon(damage, rateOfFire) {
+	  var weight = arguments.length <= 2 || arguments[2] === undefined ? 10 : arguments[2];
+	
+	  // damage is private by virtue of da closure
+	  // public API
+	  return {
+	    rateOfFire: rateOfFire,
+	    weight: weight,
+	    toString: toString,
+	    fire: fire
+	  };
+	
+	  function toString() {
+	    return "an undescriptive weapon with " + damage + " damage";
+	  }
+	  function fire() {
+	    return console.log("You fire " + toString());
+	  }
+	}
+	
+	function fireTheWeapon() {
+	  var weapon = TheWeapon(10, 1);
+	  weapon.fire();
+	  // => You fire an undescriptive weapon 10 damage
+	}
 
 /***/ }
 /******/ ])
