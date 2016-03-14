@@ -38,3 +38,27 @@ export function testThis() {
   var repo = new Shop();
   repo.listWares();
 }
+
+export function testHowThisWorks() {
+  var weapon = new Weapon(/* damage */ 10, /* rateOfFire */ 1);
+  console.log('=== this with dot notation ===');
+  // fire calls => console.log(`You fire ${this}`);
+  weapon.fire();
+  // => you fire an undescriptive weapon with 10 damage
+
+  console.log('=== this unbound ===');
+  var fireUnbound = weapon.fire;
+  fireUnbound();
+  // => you fire undefined
+
+  console.log('=== this explicitly ===');
+  fireUnbound.call(/* this */ weapon);
+  // => you fire an undescriptive weapon with 10 damage
+  fireUnbound.call(/* this */ 'jaime');
+  // => you fire jaime
+
+  console.log('=== this bound ===');
+  var fireBound = weapon.fire.bind(weapon);
+  fireBound();
+  // => you fire an undescriptive weapon with 10 damage
+}

@@ -23,7 +23,7 @@ You'll need to build some weapons if you want to survive in the radioactive wast
     1. Class Privacy with Closures
     1. This
         1. Problems with this with async callbacks
-        1. How This works? Fixing problems with this
+        1. How This works? 
 
 
 ## Want to learn more ES6?

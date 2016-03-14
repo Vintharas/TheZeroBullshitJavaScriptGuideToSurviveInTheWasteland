@@ -72,7 +72,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _this.testThis)();
+	    //testThis();
+	    (0, _this.testHowThisWorks)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -185,6 +186,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	exports.testThis = testThis;
+	exports.testHowThisWorks = testHowThisWorks;
 	
 	var _classes = __webpack_require__(1);
 	
@@ -234,11 +236,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            console.log(this.wares);
 	          } catch (error) {
 	            console.log('error: ' + error.message);
+	            // => error: cannot set wares of undefined!
 	          }
 	        });
 	      } else {
-	        console.log(this.wares);
-	      }
+	          console.log(this.wares);
+	        }
 	    }
 	  }]);
 	
@@ -248,6 +251,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	function testThis() {
 	  var repo = new Shop();
 	  repo.listWares();
+	}
+	
+	function testHowThisWorks() {
+	  var weapon = new _classes.Weapon( /* damage */10, /* rateOfFire */1);
+	  console.log('=== this with dot notation ===');
+	  // fire calls => console.log(`You fire ${this}`);
+	  weapon.fire();
+	  // => you fire an undescriptive weapon with 10 damage
+	
+	  console.log('=== this unbound ===');
+	  var fireUnbound = weapon.fire;
+	  fireUnbound();
+	  // => you fire undefined
+	
+	  console.log('=== this bound explicitly ===');
+	  fireUnbound.call( /* this */weapon);
+	  // => you fire an undescriptive weapon with 10 damage
+	  fireUnbound.call( /* this */'jaime');
+	  // => you fire jaime
+	
+	  var fireBound = weapon.fire.bind(weapon);
+	  fireBound();
+	  // => you fire an undescriptive weapon with 10 damage
 	}
 
 /***/ },
