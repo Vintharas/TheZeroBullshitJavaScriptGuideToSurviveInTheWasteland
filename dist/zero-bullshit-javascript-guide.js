@@ -74,7 +74,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _factories.fireTheWeapon)();
+	    (0, _factories.testCallbackProblemWithFactories)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -304,15 +304,30 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 4 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	exports.TheWeapon = TheWeapon;
 	exports.fireTheWeapon = fireTheWeapon;
+	exports.testCallbackProblemWithFactories = testCallbackProblemWithFactories;
+	
+	var _fs = __webpack_require__(3);
+	
+	var _fs2 = _interopRequireDefault(_fs);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
 	function TheWeapon(damage, rateOfFire) {
 	  var weight = arguments.length <= 2 || arguments[2] === undefined ? 10 : arguments[2];
 	
@@ -326,10 +341,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	
 	  function toString() {
-	    return "an undescriptive weapon with " + damage + " damage";
+	    return 'an undescriptive weapon with ' + damage + ' damage';
 	  }
 	  function fire() {
-	    return console.log("You fire " + toString());
+	    return console.log('You fire ' + toString());
 	  }
 	}
 	
@@ -337,6 +352,52 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var weapon = TheWeapon(10, 1);
 	  weapon.fire();
 	  // => You fire an undescriptive weapon 10 damage
+	}
+	
+	var WeaponRepositoryOhYeah = function () {
+	  function WeaponRepositoryOhYeah() {
+	    _classCallCheck(this, WeaponRepositoryOhYeah);
+	  }
+	
+	  _createClass(WeaponRepositoryOhYeah, [{
+	    key: 'getAll',
+	    value: function getAll(done) {
+	      _fs2.default.readFile('./src/oop/weapons.json', 'utf8', function (err, data) {
+	        if (err) {
+	          return console.log(err);
+	        }
+	        done(JSON.parse(data));
+	      });
+	    }
+	  }]);
+	
+	  return WeaponRepositoryOhYeah;
+	}();
+	
+	function Shop() {
+	  var repo = new WeaponRepositoryOhYeah();
+	  var wares = [];
+	
+	  return {
+	    wares: wares,
+	    listWares: listWares
+	  };
+	
+	  function listWares() {
+	    if (!wares.length > 0) {
+	      repo.getAll(function (allWares) {
+	        wares.push.apply(wares, _toConsumableArray(allWares));
+	        console.log(wares);
+	      });
+	    } else {
+	      console.log(wares);
+	    }
+	  }
+	}
+	
+	function testCallbackProblemWithFactories() {
+	  var shop = Shop();
+	  shop.listWares();
 	}
 
 /***/ }

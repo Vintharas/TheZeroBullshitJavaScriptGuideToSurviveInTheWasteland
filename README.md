@@ -29,6 +29,7 @@ You'll need to build some weapons if you want to survive in the radioactive wast
     1. Problems with this and with new
 1. Object Oriented Programming in a More JavaScript-y Way (and more)
     1. **Introduction to Factories**
+    1. When you use factories without *this*, you have no longer problems with callbacks
     1. // Inheritance with Factories
     1. // Composition with Factories using Mixins
 
