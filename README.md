@@ -25,6 +25,10 @@ You'll need to build some weapons if you want to survive in the radioactive wast
         1. Problems with this with async callbacks
         1. How This works? 
         1. Fixing This issue with bind
+        1. Fixing This issue with arrow functions (*beware)
+
+1. Object Oriented Programming in a More JavaScript-y Way (and more)
+    1. ... etc
 
 
 ## Want to learn more ES6?

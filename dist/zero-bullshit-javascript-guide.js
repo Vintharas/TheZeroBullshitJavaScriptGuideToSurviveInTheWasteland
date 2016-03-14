@@ -228,18 +228,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(Shop, [{
 	    key: 'listWares',
 	    value: function listWares() {
+	      var _this = this;
+	
 	      if (!this.wares.length > 0) {
-	        this.wares = this.repo.getAll(function done(wares) {
-	          try {
-	            this.wares = wares;
-	            console.log(this.wares.map(function (w) {
-	              return w.name;
-	            }));
-	          } catch (error) {
-	            console.log('error: ' + error.message);
-	            // => error: cannot set wares of undefined!
-	          }
-	        }.bind(this));
+	        this.wares = this.repo.getAll(function (wares) {
+	          _this.wares = wares;
+	          console.log(_this.wares);
+	        });
 	      } else {
 	        console.log(this.wares);
 	      }

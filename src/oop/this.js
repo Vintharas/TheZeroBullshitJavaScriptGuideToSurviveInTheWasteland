@@ -19,15 +19,10 @@ export class Shop {
   }
   listWares() {
     if (!this.wares.length > 0) {
-      this.wares = this.repo.getAll((function done(wares) {
-        try {
-          this.wares = wares;
-          console.log(this.wares);
-        } catch (error) {
-          console.log('error: ' + error.message);
-          // => error: cannot set wares of undefined!
-        }
-      }).bind(this));
+      this.wares = this.repo.getAll(wares => {
+        this.wares = wares;
+        console.log(this.wares);
+      });
     } else {
       console.log(this.wares);
     }
