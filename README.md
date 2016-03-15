@@ -29,6 +29,7 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 
 #### Learn More
 
+* [JavaScript Basics, A walkthrough of all JavaScript features more or less](http://www.barbarianmeetscoding.com/blog/2015/09/06/the-basic-ingredients-of-javascript-mancy-an-introduction-to-javascript-and-ecmascript-6-for-c-sharp-developers/)
 * [OOP Introduction in JavaScript](http://www.barbarianmeetscoding.com/blog/2015/11/23/an-introduction-to-object-oriented-programming-in-javascript-for-c-sharp-developers/)
 * [ES6 Classes](http://www.barbarianmeetscoding.com/blog/2015/12/20/white-tower-summoning-enhanced-the-marvels-of-es6-classes/)
 * [Mimicking Classes in ES5](http://www.barbarianmeetscoding.com/blog/2015/12/14/white-tower-summoning-mimicking-c-sharp-classical-inheritance-in-javascript/)
@@ -57,6 +58,21 @@ You'll need to build some weapons if you want to survive in the radioactive wast
     * [Object Composition with Mixins](http://www.barbarianmeetscoding.com/blog/2015/12/28/black-tower-summoning-object-composition-with-mixins/)
     * [The Basics of Objects in ES5 and ES6](http://www.barbarianmeetscoding.com/blog/2015/10/08/mastering-the-arcane-art-of-javascript-mancy-on-summoning-servants-and-critters-or-the-basics-of-objects/)
 
+### Demo 3: Gather Provisions! *or Data Structures in JavaScript, iterators and Generators*
+
+1. [Arrays all-in-one data structure](http://bit.ly/javascriptmancy-arrays)
+1. [Maps](http://bit.ly/javascriptmancy-data-structures-maps)
+1. [Sets](http://bit.ly/javascriptmancy-data-structures-sets)
+1. [Enumerability](http://jsfiddle.net/vintharas/1j7m9eLh/) and [Iterability](http://jsfiddle.net/vintharas/tq93y7eg/) 
+1. [Creating custom iterators](http://jsfiddle.net/vintharas/jd9vs611/)
+1. [Creating custom iterators more easily with generators](http://jsfiddle.net/vintharas/o1bgt628/)
+1. [Use generators to create infinite sequences](http://jsfiddle.net/vintharas/wkb96j00/)
+
+### /Demo 5: xxxxx *or Functional Programming in JavaScript*
+### /Demo 6: xxxxx *or Async*
+### /Demo 7: xxxxx *or Modules*
+### /Demo 8: xxxxx *or Tooling*
+### /Demo 9: xxxxx *or Lessons Learned*
 
 ## Want to learn more ES6?
 
