@@ -68,12 +68,12 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 1. [Creating custom iterators more easily with generators](http://jsfiddle.net/vintharas/o1bgt628/)
 1. [Use generators to create infinite sequences](http://jsfiddle.net/vintharas/wkb96j00/)
 
-### Demo 4: Boost your Intelligence *or Functional Programming in JavaScript*
+### Demo 4: Boost your Intelligence! *or Functional Programming in JavaScript*
 
 1. [JavaScript has LINQ!](http://jsfiddle.net/vintharas/rpgu6dqj/)
 1. [You can implement LINQ with deferred execution if you use generators](http://jsfiddle.net/vintharas/716k6tx2/)
-1. First-class functions and High-order functions
-1. Decorators and ES8?ES9? decorators
+1. With Segway into First-class functions and High-order functions (explain)
+1. [Functional programming and Decorator functions and ES8? ES9? decorators](http://bit.ly/javascriptmancy-fp-create-abstractions)
 
 #### Learn More
 
@@ -82,14 +82,41 @@ You'll need to build some weapons if you want to survive in the radioactive wast
     * [underscore](http://underscorejs.org/)
     * [linq.js](https://linqjs.codeplex.com/)
 
-### /Demo 5: xxxxx *or Async*
-### /Demo 6: xxxxx *or Modules*
-### /Demo 7: xxxxx *or Tooling*
+### Demo 5: Async
+
+1. Callbacks
+1. Promises
+1. Observables and rx.js
+    1. Marvel diagrams
+
+### Demo 6: Modules
+
+1. A Brief History of Modules in JavaScript
+    1. From script files, IIFEs, module patterns, AMD, commonJS to ES6 modules
+    1. The current landscape
+
+### Demo 7: Tooling
+
+1. Languages and transpilers: ES6/Babel, TypeScript, CoffeeScript, SASS, LESS, post-CSS, Stylus, HAML, etc, etc
+1. Package managers: npm, bower, jspm
+1. Scaffolding: yo
+1. Task managers: Gulp
+1. Bundlers and module loaders: gulp plugins, browserify, webpack, SystemJS
+1. Linters: ESLint
+1. Automated Testing
+1. Chrome Dev Tools
+1. **Tools around frameworks!!**
+    1. think about cool examples: Redux, ionic, ember, etc
+1. Text editors and IDEs
+
 ### /Demo 8: xxxxx *or Lessons Learned*
 
-## Want to learn more ES6? or More JavaScript?
+*TODO*
 
-* Check [Barbarian Meets Coding](http://www.barbarianmeetscoding.com/blog/categories/es6/)
+## Want to learn more JavaScript and ES6?
+
+* Check Barbarian Meets Coding exhaustive [JavaScript](http://www.barbarianmeetscoding.com/blog/categories/javascript/) and [ES6](http://www.barbarianmeetscoding.com/blog/categories/es6/) articles
 * [JavaScript docs about everything (even web apis) at Mozilla Developer Network MDN]()
 * And [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
 * And do some [ES6 Katas](http://es6katas.org/) to get some practice
+
