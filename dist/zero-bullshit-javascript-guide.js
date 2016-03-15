@@ -69,12 +69,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _factories = __webpack_require__(4);
 	
+	var _factoriesComposition = __webpack_require__(5);
+	
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 	
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _factories.testCallbackProblemWithFactories)();
+	    (0, _factoriesComposition.testComposition)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -383,6 +385,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    listWares: listWares
 	  };
 	
+	  // no need for this
+	  // and no problems with callbacks
 	  function listWares() {
 	    if (!wares.length > 0) {
 	      repo.getAll(function (allWares) {
@@ -398,6 +402,118 @@ return /******/ (function(modules) { // webpackBootstrap
 	function testCallbackProblemWithFactories() {
 	  var shop = Shop();
 	  shop.listWares();
+	  // => lots'a wares
+	}
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.testComposition = testComposition;
+	/*
+	*
+	* Object composition
+	*   Define objects in terms of what they can do (behavior)
+	*   instead of in terms of what they are (class)
+	*   See "composition over inheritance" => https://www.youtube.com/watch?v=wfMtDGfHWpA
+	*
+	* --- Animal
+	*  |    |- poop
+	*  |
+	*  |------ Dog
+	*  |        |- /poop/
+	*  |        |- bark
+	*  |
+	*  |------ Cat
+	*           |- /poop/
+	*           |- meow
+	*
+	*
+	* --- Robot
+	*  |    |- drive
+	*  |
+	*  |------ CleanerRobot
+	*  |        |- /drive/
+	*  |        |- clean
+	*  |
+	*  |------ KillerRobot
+	*  |        |- /drive/
+	*           |- kill
+	*
+	*
+	*
+	*  New requirement: RobotKillerDog???
+	*   - RobotKillerDog with bark method
+	*     - duplicated bark
+	*   - WorldObject parent to Robot and Animal with bark
+	*     - Removes duplication
+	*     - inherited unused method in other classes
+	*
+	*
+	*  Using composition
+	*     - Define behavior as composable units (objects or functions) => barker, pooper, cleaner, killer, drive, etc
+	*     - Define factories in terms of these composable units
+	*       - RobotKillerDog = barker + driver + killer
+	*
+	*
+	*/
+	
+	var barker = function barker(state) {
+	  return {
+	    bark: function bark() {
+	      return console.log('Woof, Woof, I am ' + state.name);
+	    }
+	  };
+	};
+	var driver = function driver(state) {
+	  return {
+	    drive: function drive() {
+	      state.position.x += state.position.x + state.speed;
+	      state.position.y += state.position.y + state.speed;
+	      console.log(state.name + ' moves to position (' + state.position.x + ', ' + state.position.y + ')');
+	    }
+	  };
+	};
+	var killer = function killer(state) {
+	  return {
+	    kill: function kill(target) {
+	      return console.log(state.name + ' kills ' + target.name);
+	    }
+	  };
+	};
+	
+	// or function RobotKillerDog
+	var RobotKillerDog = exports.RobotKillerDog = function RobotKillerDog(name) {
+	  // privates
+	  var state = {
+	    name: name,
+	    speed: 1,
+	    position: { x: 0, y: 0 }
+	  };
+	
+	  // public API
+	  return Object.assign({}, barker(state), driver(state), killer(state), {
+	    get name() {
+	      return state.name;
+	    }
+	  });
+	};
+	
+	function testComposition() {
+	  var thor = RobotKillerDog('Thor');
+	  var odin = RobotKillerDog('Odin');
+	
+	  thor.bark();
+	  // => Woof, Woof, I'm Thor
+	  thor.drive();
+	  // => Thor moves to position (1,1)
+	  thor.kill(odin);
+	  // => Thor kills Odin
 	}
 
 /***/ }
