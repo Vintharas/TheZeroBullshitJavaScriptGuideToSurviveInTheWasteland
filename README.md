@@ -68,14 +68,28 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 1. [Creating custom iterators more easily with generators](http://jsfiddle.net/vintharas/o1bgt628/)
 1. [Use generators to create infinite sequences](http://jsfiddle.net/vintharas/wkb96j00/)
 
-### /Demo 5: xxxxx *or Functional Programming in JavaScript*
-### /Demo 6: xxxxx *or Async*
-### /Demo 7: xxxxx *or Modules*
-### /Demo 8: xxxxx *or Tooling*
-### /Demo 9: xxxxx *or Lessons Learned*
+### Demo 4: Boost your Intelligence *or Functional Programming in JavaScript*
 
-## Want to learn more ES6?
+1. [JavaScript has LINQ!](http://jsfiddle.net/vintharas/rpgu6dqj/)
+1. [You can implement LINQ with deferred execution if you use generators](http://jsfiddle.net/vintharas/716k6tx2/)
+1. First-class functions and High-order functions
+1. Decorators and ES8?ES9? decorators
+
+#### Learn More
+
+* Alternatives to `Array.prototype` with extended functionality and tons of useful functions:
+    * [lodash](https://lodash.com/)
+    * [underscore](http://underscorejs.org/)
+    * [linq.js](https://linqjs.codeplex.com/)
+
+### /Demo 5: xxxxx *or Async*
+### /Demo 6: xxxxx *or Modules*
+### /Demo 7: xxxxx *or Tooling*
+### /Demo 8: xxxxx *or Lessons Learned*
+
+## Want to learn more ES6? or More JavaScript?
 
 * Check [Barbarian Meets Coding](http://www.barbarianmeetscoding.com/blog/categories/es6/)
+* [JavaScript docs about everything (even web apis) at Mozilla Developer Network MDN]()
 * And [ES6 Overview in 350 Bullet Points](https://ponyfoo.com/articles/es6)
 * And do some [ES6 Katas](http://es6katas.org/) to get some practice
