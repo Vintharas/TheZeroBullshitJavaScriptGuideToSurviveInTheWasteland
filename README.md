@@ -38,7 +38,7 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 1. Composition with Factories using Mixins
 1. You can also use Mixins with classes
 1. Mixins, classes and prototypes
-1. /What's a prototype?/
+1. What's a prototype?
 1. /Other cool OOP paradigms with libraries/
 
 #### Learn More

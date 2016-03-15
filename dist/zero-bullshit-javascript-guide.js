@@ -71,12 +71,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _factoriesComposition = __webpack_require__(5);
 	
+	var _prototypes = __webpack_require__(6);
+	
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 	
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _classes.textObjectMixinWithClassPrototype)();
+	    (0, _prototypes.testPrototypes)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -308,13 +310,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var bazooka = new HeavyWeapon(100, 1);
 	  var grenade = new HeavyWeapon(1000, 1);
 	
+	  // even at runtime! Waaaaat!
 	  Object.assign(Weapon.prototype, canBeThrown);
 	  [bazooka, grenade, gun].forEach(function (w) {
 	    return w.throw();
 	  });
 	  /*
-	    =>
+	    =>  You throw an undescriptive weapon with 1000 damage away with great force
+	        You throw an undescriptive weapon with 10000 damage away with great force
+	        You throw an undescriptive weapon with 10 damage away with great force
 	  */
+	
+	  // so what's a prototype?
 	}
 
 /***/ },
@@ -669,6 +676,48 @@ return /******/ (function(modules) { // webpackBootstrap
 	//     - cannot define requirements
 	//     - can have name collisions with mixins
 	//   - there's more sofisticated object composition solutions
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.testPrototypes = testPrototypes;
+	
+	var _classes = __webpack_require__(1);
+	
+	function testPrototypes() {
+	  // javascript has prototypical inheritance
+	  // every object has another object as prototype
+	  var newObject = {};
+	  console.log('new Object prototype is: ' + Object.getPrototypeOf(newObject));
+	  // => new Object prototype is: [Object object]
+	
+	  // What is useful about prototypes?
+	  // Prototypes let use reuse code through prototypical inheritance
+	  // Classes are just syntactic sugar over prototypical inheritance
+	  // Methods defined at the class level are part of the prototype
+	  console.log('Weapon prototype fire method => ' + _classes.Weapon.prototype.fire);
+	  /* =>  Weapon prototype fire method => function fire() {
+	          console.log('You fire ' + this);
+	         }
+	  */
+	  // Methods defined within the constructor and bound to this are part of each instance
+	  console.log('Weapon pickUp method not in prototype => ' + _classes.Weapon.prototype.pickUp);
+	  // =>  Weapon prototype fire method => undefined
+	
+	  // Instance and prototype establish a prototypical chain
+	  // where method calls are delegated from instance to prototype and down the chain (when there's several prototypes)
+	  var weapon = new _classes.Weapon(1, 1);
+	  console.log('weapon.toString(): ' + weapon.toString());
+	  // => weapon.toString(): an undescriptive weapon with 1 damage
+	  console.log('Weapon.prototype.toString(): ' + _classes.Weapon.prototype.toString());
+	  // => weapon.toString(): [Object object]
+	}
 
 /***/ }
 /******/ ])

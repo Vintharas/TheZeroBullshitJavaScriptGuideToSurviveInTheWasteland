@@ -2,11 +2,12 @@ import { Weapon, fireWeapon, testNew, testFunctionalMixinWithClasses, textObject
 import { testThis, testHowThisWorks } from './oop/this';
 import { fireTheWeapon, testCallbackProblemWithFactories } from './oop/factories.js';
 import { testComposition } from './oop/factories-composition.js';
+import { testPrototypes } from './oop/prototypes.js';
 
 const zeroBullshitJavaScriptGuide = {
   test() {
     console.log(pip`Starting simulation`);
-    textObjectMixinWithClassPrototype();
+    testPrototypes();
     console.log(pip`Completing simulation`);
   }
 };
