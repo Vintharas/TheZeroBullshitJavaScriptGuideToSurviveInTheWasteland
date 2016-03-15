@@ -76,7 +76,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _classes.testFunctionalMixinWithClasses)();
+	    (0, _classes.textObjectMixinWithClassPrototype)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -109,6 +109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.fireWeapon = fireWeapon;
 	exports.testNew = testNew;
 	exports.testFunctionalMixinWithClasses = testFunctionalMixinWithClasses;
+	exports.textObjectMixinWithClassPrototype = textObjectMixinWithClassPrototype;
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
@@ -212,6 +213,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 	
+	// Example object mixin that only encapsulates behavior (no data)
+	// we are going to mix it with a prototype that is shared across
+	// many objects (shared state across instances is not cool)
+	var canBeThrown = {
+	  throw: function _throw() {
+	    console.log('You throw ' + this + ' away with great force');
+	  }
+	};
+	
 	var HeavyWeapon = exports.HeavyWeapon = function (_Weapon) {
 	  _inherits(HeavyWeapon, _Weapon);
 	
@@ -275,8 +285,36 @@ return /******/ (function(modules) { // webpackBootstrap
 	    s.examineWeight();
 	    s.pickUp();
 	  });
-	  /* =>
-	    */
+	  /*
+	     => an undescriptive weapon with 10 damage looks light
+	        You pick an undescriptive weapon with 10 damage up
+	        jaime looks heavy
+	        jaime is too heavy, you can't pick it up
+	        a kick-ass wall looks heavy
+	        a kick-ass wall is too heavy, you can't pick it up
+	  */
+	}
+	
+	function textObjectMixinWithClassPrototype() {
+	  // JavaScript allows you to augment any object at runtime;
+	  // if you hadn't noticed
+	  var gun = new Weapon(10, 5);
+	  gun.name = 'Falcon';
+	  console.log('gun name is ' + gun.name);
+	  // => gun name is falcon
+	
+	  // but there's something even cooler
+	  // you can augment all objects that share the same prototype as well
+	  var bazooka = new HeavyWeapon(100, 1);
+	  var grenade = new HeavyWeapon(1000, 1);
+	
+	  Object.assign(Weapon.prototype, canBeThrown);
+	  [bazooka, grenade, gun].forEach(function (w) {
+	    return w.throw();
+	  });
+	  /*
+	    =>
+	  */
 	}
 
 /***/ },
