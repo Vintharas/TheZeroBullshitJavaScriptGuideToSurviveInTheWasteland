@@ -36,7 +36,8 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 1. Introduction to Factories
 1. When you use factories without *this*, you have no longer problems with callbacks
 1. Composition with Factories using Mixins
-1. /can also use mixins with classes/
+1. You can also use Mixins with classes
+1. /Mixins, classes and prototypes/
 
 #### Learn More
 

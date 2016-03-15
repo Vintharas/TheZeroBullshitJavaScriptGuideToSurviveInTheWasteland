@@ -1,4 +1,4 @@
-import { Weapon, fireWeapon, testNew } from './oop/classes';
+import { Weapon, fireWeapon, testNew, testFunctionalMixinWithClasses } from './oop/classes';
 import { testThis, testHowThisWorks } from './oop/this';
 import { fireTheWeapon, testCallbackProblemWithFactories } from './oop/factories.js';
 import { testComposition } from './oop/factories-composition.js';
@@ -6,7 +6,7 @@ import { testComposition } from './oop/factories-composition.js';
 const zeroBullshitJavaScriptGuide = {
   test() {
     console.log(pip`Starting simulation`);
-    testComposition();
+    testFunctionalMixinWithClasses();
     console.log(pip`Completing simulation`);
   }
 };

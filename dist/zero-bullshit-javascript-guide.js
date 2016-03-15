@@ -76,7 +76,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var zeroBullshitJavaScriptGuide = {
 	  test: function test() {
 	    console.log(pip(_templateObject));
-	    (0, _factoriesComposition.testComposition)();
+	    (0, _classes.testFunctionalMixinWithClasses)();
 	    console.log(pip(_templateObject2));
 	  }
 	};
@@ -96,7 +96,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -108,6 +108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.fireWeapon = fireWeapon;
 	exports.testNew = testNew;
+	exports.testFunctionalMixinWithClasses = testFunctionalMixinWithClasses;
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
@@ -122,25 +123,94 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, Weapon);
 	
 	    this.rateOfFire = rateOfFire;
-	    this.weight = weight;
 	
-	    Object.assign(this, {
+	    Object.assign(this, canBeWeighted(this, weight), {
 	      toString: function toString() {
 	        // closure
-	        return "an undescriptive weapon with " + damage + " damage";
+	        return 'an undescriptive weapon with ' + damage + ' damage';
 	      }
 	    });
 	  }
 	
 	  _createClass(Weapon, [{
-	    key: "fire",
+	    key: 'fire',
 	    value: function fire() {
-	      console.log("You fire " + this);
+	      console.log('You fire ' + this);
 	    }
 	  }]);
 	
 	  return Weapon;
 	}();
+	
+	var MutantSoldier = exports.MutantSoldier = function () {
+	  function MutantSoldier(name, hp) {
+	    _classCallCheck(this, MutantSoldier);
+	
+	    Object.assign(this, { name: name, hp: hp }, canBeWeighted(this, 300));
+	  }
+	
+	  _createClass(MutantSoldier, [{
+	    key: 'toString',
+	    value: function toString() {
+	      return this.name;
+	    }
+	  }, {
+	    key: 'attack',
+	    value: function attack() {
+	      // attack...
+	    }
+	  }, {
+	    key: 'move',
+	    value: function move() {
+	      // move...
+	    }
+	  }]);
+	
+	  return MutantSoldier;
+	}();
+	
+	var Wall = exports.Wall = function () {
+	  function Wall(defense, hp) {
+	    _classCallCheck(this, Wall);
+	
+	    Object.assign(this, { defense: defense, hp: hp }, canBeWeighted(this, 10000));
+	  }
+	
+	  _createClass(Wall, [{
+	    key: 'toString',
+	    value: function toString() {
+	      return 'a kick-ass wall';
+	    }
+	  }]);
+	
+	  return Wall;
+	}();
+	
+	// Example Functional mixin that also encapsulates state
+	
+	
+	function canBeWeighted(item, weight) {
+	  Object.assign(item, {
+	    weight: weight,
+	    examineWeight: examineWeight,
+	    pickUp: pickUp
+	  });
+	
+	  function examineWeight() {
+	    if (item.weight > 50) {
+	      console.log(item.toString() + ' looks heavy');
+	    } else {
+	      console.log(item.toString() + ' looks light');
+	    }
+	  }
+	  function pickUp() {
+	    if (weight > 50) {
+	      console.log(item.toString() + ' is too heavy, you can\'t pick it up');
+	    } else {
+	      console.log('You pick ' + item + ' up');
+	    }
+	  }
+	}
 	
 	var HeavyWeapon = exports.HeavyWeapon = function (_Weapon) {
 	  _inherits(HeavyWeapon, _Weapon);
@@ -154,9 +224,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  _createClass(HeavyWeapon, [{
-	    key: "toString",
+	    key: 'toString',
 	    value: function toString() {
-	      return _get(Object.getPrototypeOf(HeavyWeapon.prototype), "toString", this).call(this) + ". It looks heavy.";
+	      return _get(Object.getPrototypeOf(HeavyWeapon.prototype), 'toString', this).call(this) + '. It looks heavy.';
 	    }
 	  }]);
 	
@@ -172,7 +242,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // you fire an undescriptive weapon with 100 damage. It looks heavy
 	
 	  // testing privacy
-	  console.log("heavy weapon damage: " + heavyWeapon.damage);
+	  console.log('heavy weapon damage: ' + heavyWeapon.damage);
 	  // heavy weapon with damage: undefined
 	}
 	
@@ -180,7 +250,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // ups, forgot the new keyword
 	  try {
 	    var weapon = ES5Weapon(10, 1);
-	    console.log("weapon is : " + weapon);
+	    console.log('weapon is : ' + weapon);
 	  } catch (error) {
 	    console.log(error);
 	    // => cannot set property damage of undefined
@@ -194,6 +264,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.damage = damage;
 	  this.rageOfFire = rateOfFire;
 	  this.weight = weight;
+	}
+	
+	function testFunctionalMixinWithClasses() {
+	  var weapon = new Weapon(10, 1);
+	  var mutant = new MutantSoldier('jaime', 100);
+	  var wall = new Wall(200, 10000);
+	  var stuff = [weapon, mutant, wall];
+	  stuff.forEach(function (s) {
+	    s.examineWeight();
+	    s.pickUp();
+	  });
+	  /* =>
+	    */
 	}
 
 /***/ },
@@ -482,7 +565,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var killer = function killer(state) {
 	  return {
 	    kill: function kill(target) {
-	      return console.log(state.name + ' kills ' + target.name);
+	      return console.log(state.name + ' kills ' + target.name + '. Maniac!');
 	    }
 	  };
 	};
@@ -513,8 +596,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	  thor.drive();
 	  // => Thor moves to position (1,1)
 	  thor.kill(odin);
-	  // => Thor kills Odin
+	  // => Thor kills Odin. Maniac!
 	}
+	
+	var pooper = function pooper(state) {
+	  return {
+	    poop: function poop() {
+	      return console.log(state.name + ' poops');
+	    }
+	  };
+	};
+	
+	// composing new objects from these behaviors is very straight forward
+	function Dog(name) {
+	  var state = { name: name };
+	  return Object.assign({}, barker(state), pooper(state));
+	}
+	
+	function KillerRobot() {
+	  var state = { name: name, speed: 0, position: { x: 0, y: 0 } };
+	  return Object.assign({}, driver(state), killer(state));
+	}
+	
+	// etc
+
+	// Advantages
+	//   - super flexibility
+	//   - code reusable
+	//   - less code required than using class composition (via delegation)
+	//   - no problems with this/new
+	// Disadvantages
+	//   - there's a lot of implicit things going on here that may cause errors at runtime
+	//     - the contract of what is required from state is define in a mixin implementation
+	//     - cannot define requirements
+	//     - can have name collisions with mixins
+	//   - there's more sofisticated object composition solutions
 
 /***/ }
 /******/ ])
