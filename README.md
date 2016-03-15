@@ -85,7 +85,8 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 ### Demo 5: Async
 
 1. Callbacks
-1. Promises
+1. [Promises](http://bit.ly/javascriptmancy-async-promises-kittens)
+    1. [Promises diagram](https://mdn.mozillademos.org/files/8633/promises.png)
 1. Observables and rx.js
     1. Marvel diagrams
 
