@@ -2,9 +2,16 @@
 
 ## Introduction
 
-... *intro here* ...
+... *intro here muhahahaha* ...
 
 ## Get Started!
+
+1. [Install node and npm](https://nodejs.org/en/)
+2. Run `npm install`
+3. Run `npm start simulation` to execute the codes
+4. Demos 1 and 2 have source code in the repository, run `git tag` to see which demos are available
+5. Checkout and specific samples. Ex: `git checkout 001-intro-to-classes`
+    6. Run example `npm start simulation` (or `node dist/zero-bullshit-javascript-guide.js`)
 
 ### Demo 1: Time to Gear Up! *or Object Oriented Programming (and more)*
 
