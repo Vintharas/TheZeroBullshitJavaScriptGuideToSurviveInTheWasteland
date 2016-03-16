@@ -36,6 +36,7 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 
 #### Learn More
 
+* [What is ECMAScript](https://www.youtube.com/watch?v=UBmQpD2RrPU)
 * [JavaScript Basics, A walkthrough of all JavaScript features more or less](http://www.barbarianmeetscoding.com/blog/2015/09/06/the-basic-ingredients-of-javascript-mancy-an-introduction-to-javascript-and-ecmascript-6-for-c-sharp-developers/)
 * [OOP Introduction in JavaScript](http://www.barbarianmeetscoding.com/blog/2015/11/23/an-introduction-to-object-oriented-programming-in-javascript-for-c-sharp-developers/)
 * [ES6 Classes](http://www.barbarianmeetscoding.com/blog/2015/12/20/white-tower-summoning-enhanced-the-marvels-of-es6-classes/)
