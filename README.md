@@ -8,10 +8,10 @@
 
 1. [Install node and npm](https://nodejs.org/en/)
 2. Run `npm install`
-3. Run `npm start simulation` to execute the codes
+3. Run `npm run simulation` to execute the codes
 4. Demos 1 and 2 have source code in the repository, run `git tag` to see which demos are available
 5. Checkout and specific samples. Ex: `git checkout 001-intro-to-classes`
-    6. Run example `npm start simulation` (or `node dist/zero-bullshit-javascript-guide.js`)
+    6. Run example `npm run simulation` (or `npm run run` with some of the first examples)
 
 ### Demo 1: Time to Gear Up! *or Object Oriented Programming (and more)*
 
@@ -93,7 +93,7 @@ You'll need to build some weapons if you want to survive in the radioactive wast
 ### Demo 5: Async
 
 1. Callbacks
-    1. [Callbacks don't compose](http://bit.ly/javascriptmancy-async-await)
+    1. [Callbacks don't compose](https://github.com/mattdesl/promise-cookbook#the-problem)
 1. [Promises](http://bit.ly/javascriptmancy-async-promises-kittens)
     1. <a href="http://bevacqua.github.io/promisees/#">PROMIsees visualization tool</a>
     1. <a href="http://bevacqua.github.io/promisees/?utm_content=buffer61cc7&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer#code=%2F*%0A%0AAsync+with+Promises%0A%0ALike+Tasks+in+.NET%0A%0A*%2F%0A%0Aconst+catImage1+%3D+'http%3A%2F%2Fwww.vetprofessionals.com%2Fcatprofessional%2Fimages%2Fhome-cat.jpg'%3B%0Aconst+catImage2+%3D+'https%3A%2F%2Fencrypted-tbn1.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcTKb20tUARmw8yTaDOlrHmVBLNcN3v7vxZWI1kIBUlI-tnujZKY'%3B%0Aconst+catImage3+%3D+'https%3A%2F%2Fencrypted-tbn3.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQH5PcQiiy8fBHAlyw5eY_GA448Qq94XG2oxsiX1fflI233I01b'%3B%0Aconst+catImage4+%3D+'http%3A%2F%2Fwww.holidaycat.cz%2Fwp-content%2Fuploads%2F2015%2F05%2FLeo.jpg'%3B%0A%0Afunction+loadImage(url%2C+delay%3D1000)+%7B%0A++return+new+Promise((resolve%2C+reject)+%3D%3E+%7B%0A++++let+image+%3D+new+Image()%3B%0A%0A++++image.onload+%3D+function()+%7B%0A++++++%2F%2F+setting+a+timeout+so%0A++++++%2F%2F+we+can+see+how+they+load%0A++++++setTimeout(_+%3D%3E+resolve(image)%2C+delay)%3B%0A++++%7D%0A%0A++++image.onerror+%3D+function()+%7B%0A++++++let+message+%3D%0A++++++++'Could+not+load+image+at+'+%2B+url%3B%0A++++++reject(new+Error(message))%3B%0A++++%7D%0A%0A++++image.src+%3D+url%3B%0A++%7D)%0A%7D%0A%0Alet+addImg+%3D+(src)+%3D%3E+%7B%0A++let+imgElement+%3D%0A++++document.createElement(%22img%22)%0A++imgElement.src+%3D+src%0A++imgElement.width+%3D+100%3B%0A++%0A++let+parentElem+%3D+document.querySelector(%22body%22)%3B%0A++parentElem.appendChild(imgElement)%0A%7D%0A%0A%2F*+Concatenating+promises+*%2F%0A%0Aconst+whenFirstImageIsLoaded+%3D+loadImage(catImage1)%3B%0A%0AwhenFirstImageIsLoaded%0A++.then((img)+%3D%3E+%7B%0A+++++addImg(img.src)%3B%0A++%0A+++++%2F%2F+return+promise%0A+++++return+loadImage(catImage2)%3B%0A%7D%2C+(err)+%3D%3E+console.log(err.message))%0A++.then(img+%3D%3E+%7B%0A+++++%2F%2F+it's+unwrapped!!!%0A+++++addImg(img.src)%3B%0A%7D)%3B%0A%0A%2F*+Composing+promises+with+Promise.all+*%2F%0A%2F*%0Aconst+whenAllImagesAreLoaded+%3D+Promise.all(%5B%0A++loadImage(catImage1%2C+1000)%2C%0A++loadImage(catImage2%2C+2000)%2C%0A++loadImage(catImage3%2C+2500)%2C%0A++loadImage(catImage4%2C+1000)%2C%0A++%2F%2FloadImage('hahaha.jpg')%0A%5D)%3B%0A%0AwhenAllImagesAreLoaded.then((images)+%3D%3E+%7B%0A++images.forEach(img+%3D%3E+addImg(img.src))%3B%0A++return+images%3B%0A%7D).catch((error)+%3D%3E+%7B%0A++%2F%2F+handle+error+later%0A++console.log(error.message)%3B%0A%7D).then((images)+%3D%3E+console.log(images.map(i+%3D%3E+i.src).join('%2C')))%3B%0A*%2F">PROMIsees visualization with example kittens</a>
@@ -135,9 +135,19 @@ You'll need to build some weapons if you want to survive in the radioactive wast
     1. GitHub
     1. CodePen, JsFiddle, JsBin, Plunker, etc
 
-### /Demo 8: xxxxx *or Lessons Learned*
+### Demo 8: Lessons Learned
 
-*TODO*
+* **Be disciplined**. Just because you can do virtually anything you want with JavaScript doesn't mean that you should. Follow the same good programming practices you are accustomed from writing C#: small classes, factories, modules that do one thing, hide the implementation details, provide small, intentional, self-explanatory APIs, etc. Everything you've learned about how to write good C# programs applies to JavaScript.
+* **Be consistent**. JavaScript gives you a lot of freedom and doesn't impose a lot of design decisions upon you. That means that it is up to you to decide how you're gonna architect your application, how you are going to represent your domain objects, etc. Decide early on whether you want to use classes, object literals, factories, stamps, traits and be consistent. This will result in a more readable and maintainable code base
+* **Empoyer yourself with good tooling** to cover for JavaScript weaknesses. Tools like a good linter will avoid a lot of grief in runtime exceptions.
+* **Automate away stuff**. Have a bias for automation, there's a lot of thing in JavaScript and front-end development that you can automate. Code styling tools like `jscs` and linters like `eslint` will take off the burden of remembering the styling rules of your project from your shoulders so you can focus in adding value. Using `gulp` and the hst of plugins availale in its ecosystem will also save you a ton of time from adding CSS vendor prefixes, manually optimizing the size of your images, etc, etc. Whenever you see yourself doing the same thing over and over, automate it.
+* **Take advantange of the community**. JavaScript has a thriving ecosystem and a bias for sharing code and doing open source. Take advantage of the work of others using [GitHub](http://www.github.com), [Npm](https://www.npmjs.com/), [Bower](http://www.bower.io), [Yo](http://yeoman.io/). Not only in the sense of using libraries in your project but also learning from the work of others by reading their source code.
+* **Beware of closures**. *Closures* are super useful when implementing data privacy or high-order functions but they can get out of hand very easily. Remember that defining a closure makes the function depend of a free-variable, which in turns makes your closure function non-deterministic and subject to changing based on the value of this enclosed variable, it's basically something akin to using a global variable. It also makes your code harder to reuse because extracting a closure that depends of an enclosed variable outside of the context in which the variable is defined will break your function automatically. Because of that, you need to be very mindful when using closures, limit their usage an scope to very small regions of code. That will make your code easier to reuse and dealing with closure-related bugs much easier (you have a smaller region to debug).
+* **Learn to deal with "Null Reference Exceptions"**. Null reference exceptions are by far the most common problem you'll encounter in JavaScript programs: `undefined is not a function` and `Cannot set property 'cucumber' of undefined`. Don't freak out, if you use a modular application and good dev tools you'll be able to fix the issue within seconds. Use good linting tools to catch misspellings before they crash your program.
+* Get a lot of **feed-forward** to help you diagnose bugs and ensure the quality of your code using automated testing and logging
+* Get a lot of **feed-back** for the same reason, also with automated tests, logging and using the amazing dev debugging tools available to us today (like for instance Chrome Dev Tools debugger).
+* **Don't be drown by the hype**. The JavaScript ecosystem is in constant evoluation and there's new frameworks and patterns appearing every day. Know a little about everything and a lot about one thing. (f.i. know what React is, why it's good, what rx.js is, what's good for but know angular really well - or vice versa)
+* **Start using ES6 today!**. ES6 is going to make your code much more consistent because it provides a lot of native support for things that we use to make up ourselves. Take advantage of either ES6 or TypeScript now!
 
 ## Want to learn more JavaScript and ES6?
 
